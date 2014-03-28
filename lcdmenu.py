@@ -9,6 +9,7 @@ import commands
 import os
 from string import split
 from time import sleep, strftime, localtime
+from datetime import date
 from xml.dom.minidom import *
 from Adafruit_I2C import Adafruit_I2C
 from Adafruit_MCP230xx import Adafruit_MCP230XX
@@ -227,21 +228,21 @@ def Use10Network():
         sleep(0.25)
 
 #only use the following if you find useful
-def UseDHCP():
-    "Allows you to switch to a network config that uses DHCP"
-    lcd.clear()
-    lcd.message('Are you sure?\nPress Sel for Y')
-    while 1:
-        if lcd.buttonPressed(lcd.LEFT):
-            break
-        if lcd.buttonPressed(lcd.SELECT):
+#def UseDHCP():
+#    "Allows you to switch to a network config that uses DHCP"
+#    lcd.clear()
+#    lcd.message('Are you sure?\nPress Sel for Y')
+#    while 1:
+#        if lcd.buttonPressed(lcd.LEFT):
+#            break
+#        if lcd.buttonPressed(lcd.SELECT):
             # uncomment the following once you get an original copy in place
             #commands.getoutput("sudo cp /etc/network/interfaces.orig /etc/network/interfaces")
-            lcd.clear()
-            lcd.message('Please reboot')
-            sleep(1.5)
-            break
-        sleep(0.25)
+#            lcd.clear()
+#            lcd.message('Please reboot')
+#            sleep(1.5)
+#            break
+#        sleep(0.25)
 
 def ShowLatLon():
     if DEBUG:
@@ -312,6 +313,15 @@ def AstroViewRADecl():
 def CameraDetect():
     if DEBUG:
         print('in CameraDetect')
+    lcd.clear()
+    lcd.message('Gphoto2\nAutoDetect')
+    while 1:
+    	if lcd.buttonPressed(lcd.SELECT):
+    		lcd.clear()
+    		os.system('gphoto2 --auto-detect')
+    		sleep(2)
+    		break
+    	
     
 def CameraTakePicture():
     if DEBUG:
@@ -320,6 +330,31 @@ def CameraTakePicture():
 def CameraTimeLapse():
     if DEBUG:
         print('in CameraTimeLapse')
+    lcd.clear()
+    lcd.message('Time Lapse')
+    while 1:
+    	timeLap = 0
+    	folder = datetime.today()
+    	if lcd.buttonPressed(lcd.UP):
+    		timeLap += 1
+    		break
+    	if lcd.buttonPressed(lcd.DOWN):
+    		timeLap -= 1
+    		break
+    	if lcd.buttonPressed(lcd.RIGHT):
+    		lcd.clear()
+    		lcd.message('Time\n'timeLap' Sec.'):
+    			break
+    	if lcd.buttonPressed(lcd.LEFT):
+            break
+        if lcd.buttonPressed(lcd.SELECT):
+        	lcd.message('Starting in\n10 Seconds')
+        	os.system('sudo mkdir ', folder)
+        	os.sytem('cd ', folder)
+        	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', timeLap)
+        	break
+        	
+    		
 
 class CommandToRun:
     def __init__(self, myName, theCommand):
