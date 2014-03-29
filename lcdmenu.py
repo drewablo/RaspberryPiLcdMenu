@@ -326,6 +326,11 @@ def CameraDetect():
 def CameraTakePicture():
     if DEBUG:
         print('in CameraTakePicture')
+    lcd.clear()
+    lcd.message('Capture\nPicture')
+    while 1:
+    	if lcd.buttonPressed(lcd.SELECT):
+    		os.system('sudo gphoto2 --capture-image')
 
 def CameraTimeLapse():
     if DEBUG:
@@ -338,23 +343,27 @@ def CameraTimeLapse():
     	if lcd.buttonPressed(lcd.UP):
     		timeLap += 1
     		break
+    	sleep(0.25)
     	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
     		break
+    	sleep(0.25)
     	if lcd.buttonPressed(lcd.RIGHT):
     		lcd.clear()
     		lcd.message('Time\n'timeLap' Sec.'):
-    			break
-    	if lcd.buttonPressed(lcd.LEFT):
-            break
-        if lcd.buttonPressed(lcd.SELECT):
+    		break
+    	sleep(0.25)
+    	if lcd.buttonPressed(lcd.SELECT):
+    		lcd.clear()
         	lcd.message('Starting in\n10 Seconds')
         	os.system('sudo mkdir ', folder)
         	os.sytem('cd ', folder)
         	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', timeLap)
         	break
-        	
-    		
+        sleep(0.25)
+        if lcd.buttonPressed(lcd.LEFT):
+            break
+        sleep(0.25)
 
 class CommandToRun:
     def __init__(self, myName, theCommand):
