@@ -1,5 +1,5 @@
 <application>
-  <settings lcdColor="White" lcdBackground="On" />
+  <settings lcdColor="Red" lcdBackground="On" />
   <folder text="System Info">
     <widget text="Show Date/Time" function="ShowDateTime" />
     <widget text="Set Date/Time" function="SetDateTime" />
