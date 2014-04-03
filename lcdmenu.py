@@ -353,10 +353,10 @@ def CameraTimeLapse():
     		lcd.clear()
     		lcd.message(timeLap)
        	if lcd.buttonPressed(lcd.RIGHT):
+       		lcd.home()
     		lcd.clear()
-    		lcd.message('Time is \n', timeLap ' Sec')
-    		break
-    	if lcd.buttonPressed(lcd.SELECT):
+    		lcd.message('Time\n',timeLap,' Sec.')
+	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
         	lcd.message('Starting in\n10 Seconds')
         	os.system('sudo mkdir ', folder)
