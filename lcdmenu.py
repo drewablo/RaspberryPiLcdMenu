@@ -309,13 +309,16 @@ def AstroViewAltAz():
 def AstroViewRADecl():
     if DEBUG:
         print('in AstroViewRADecl')
-
+        
+def MarsStats():
+ 
 def CameraDetect():
     if DEBUG:
         print('in CameraDetect')
-    lcd.clear()
-    lcd.message('Gphoto2\nAutoDetect')
+    
     while 1:
+    	lcd.clear()
+    	lcd.message('Gphoto2\nAutoDetect')
     	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
     		os.system('gphoto2 --auto-detect')
@@ -346,22 +349,25 @@ def CameraTimeLapse():
     	
     	if lcd.buttonPressed(lcd.UP):
     		timeLap += 1
+    		setTime = timeLap
     		lcd.clear()
-    		lcd.message(timeLap)
+    		lcd.message(setTime)
+    		
        	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
     		lcd.clear()
-    		lcd.message(timeLap)
+    		lcd.message(setTime)
+    		
        	if lcd.buttonPressed(lcd.RIGHT):
        		lcd.home()
     		lcd.clear()
-    		lcd.message('Time\n',timeLap,' Sec.')
+    		lcd.message('Time\n',setTime,' Sec.')
 	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
         	lcd.message('Starting in\n10 Seconds')
         	os.system('sudo mkdir ', folder)
         	os.sytem('cd ', folder)
-        	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', timeLap)
+        	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', setTime)
         	break
         if lcd.buttonPressed(lcd.LEFT):
             break
