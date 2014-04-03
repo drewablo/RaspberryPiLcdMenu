@@ -339,13 +339,24 @@ def CameraTimeLapse():
     lcd.message('Time Lapse')
     while 1:
     	timeLap = 0
-    	folder = datetime.today()
+    	now = datetime.datetime.now()
+	    now.hour
+	    now.mintue
+	    now.year
+	    now.day
+	    now.month
+    	folder = (now.year,now.month,now.day,now.hour)
+    	
     	if lcd.buttonPressed(lcd.UP):
     		timeLap += 1
+    		lcd.clear()
+    		lcd.message(timeLap)
     		break
     	sleep(0.25)
     	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
+    		lcd.clear()
+    		lcd.message(timeLap)
     		break
     	sleep(0.25)
     	if lcd.buttonPressed(lcd.RIGHT):
