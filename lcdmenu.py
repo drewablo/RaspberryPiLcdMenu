@@ -356,7 +356,7 @@ def CameraTimeLapse():
     		lcd.message(timeLap)
        	if lcd.buttonPressed(lcd.RIGHT):
     		lcd.clear()
-    		lcd.message('Time\n',timeLap,' Sec.')
+    		lcd.message('Time in Sec\n', timeLap)
     		break
     	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
