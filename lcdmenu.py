@@ -329,8 +329,10 @@ def CameraTakePicture():
     lcd.clear()
     lcd.message('Capture\nPicture')
     while 1:
-    	if lcd.buttonPressed(lcd.SELECT):
+    	if lcd.buttonPressed(lcd.RIGHT):
     		os.system('sudo gphoto2 --capture-image')
+    	if lcd.buttonPressed(lcd.LEFT):
+    		break
 
 def CameraTimeLapse():
     if DEBUG:
@@ -344,14 +346,14 @@ def CameraTimeLapse():
     	
     	if lcd.buttonPressed(lcd.UP):
     		timeLap += 1
+    		lcd.home()
     		lcd.clear()
     		lcd.message(timeLap)
-    		break
        	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
+    		lcd.home()
     		lcd.clear()
     		lcd.message(timeLap)
-    		break
        	if lcd.buttonPressed(lcd.RIGHT):
     		lcd.clear()
     		lcd.message('Time\n',timeLap,' Sec.')
