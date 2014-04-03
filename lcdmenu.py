@@ -340,11 +340,6 @@ def CameraTimeLapse():
     while 1:
     	timeLap = 0
     	now = datetime.datetime.now()
-	    now.hour
-	    now.mintue
-	    now.year
-	    now.day
-	    now.month
     	folder = (now.year,now.month,now.day,now.hour)
     	
     	if lcd.buttonPressed(lcd.UP):
