@@ -347,18 +347,15 @@ def CameraTimeLapse():
     		lcd.clear()
     		lcd.message(timeLap)
     		break
-    	sleep(0.25)
-    	if lcd.buttonPressed(lcd.DOWN):
+       	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
     		lcd.clear()
     		lcd.message(timeLap)
     		break
-    	sleep(0.25)
-    	if lcd.buttonPressed(lcd.RIGHT):
+       	if lcd.buttonPressed(lcd.RIGHT):
     		lcd.clear()
     		lcd.message('Time\n',timeLap,' Sec.')
     		break
-    	sleep(0.25)
     	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
         	lcd.message('Starting in\n10 Seconds')
@@ -366,7 +363,6 @@ def CameraTimeLapse():
         	os.sytem('cd ', folder)
         	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', timeLap)
         	break
-        sleep(0.25)
         if lcd.buttonPressed(lcd.LEFT):
             break
         sleep(0.25)
