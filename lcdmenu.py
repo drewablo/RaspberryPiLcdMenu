@@ -314,7 +314,7 @@ def MarsStats():
  
 def CameraDetect():
     if DEBUG:
-        print('in CameraDetect')
+    print('in CameraDetect')
     
     while 1:
     	lcd.clear()
