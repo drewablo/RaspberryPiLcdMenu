@@ -360,13 +360,13 @@ def CameraTimeLapse():
        	if lcd.buttonPressed(lcd.RIGHT):
        		lcd.home()
     		lcd.clear()
-    		lcd.message('Time\n',setTime,' Sec.')
+    		lcd.message('Time\n',timeLap,' Sec.')
 	if lcd.buttonPressed(lcd.SELECT):
     		lcd.clear()
         	lcd.message('Starting in\n10 Seconds')
         	os.system('sudo mkdir ', folder)
         	os.sytem('cd ', folder)
-        	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', setTime)
+        	os.sytem('sudo gphoto2 --capture-image-and-download --interval ', timeLap)
         	break
         if lcd.buttonPressed(lcd.LEFT):
             break
