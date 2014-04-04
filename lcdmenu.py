@@ -352,12 +352,10 @@ def CameraTimeLapse():
     		setTime = timeLap
     		lcd.clear()
     		lcd.message(setTime)
-    		
        	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
     		lcd.clear()
     		lcd.message(setTime)
-    		
        	if lcd.buttonPressed(lcd.RIGHT):
        		lcd.home()
     		lcd.clear()
