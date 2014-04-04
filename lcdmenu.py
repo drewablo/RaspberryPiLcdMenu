@@ -328,7 +328,7 @@ def CameraDetect():
     
 def CameraTakePicture():
     if DEBUG:
-        print('in CameraTakePicture')
+	print('in CameraTakePicture')
     lcd.clear()
     lcd.message('Capture\nPicture')
     while 1:
