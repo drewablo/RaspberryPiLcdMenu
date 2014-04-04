@@ -348,16 +348,14 @@ def CameraTimeLapse():
     	timeLap = 0
     	now = datetime.datetime.now()
     	folder = (now.year,now.month,now.day,now.hour)
-    	
+    	lcd.message(timeLap)
     	if lcd.buttonPressed(lcd.UP):
     		timeLap += 1
     	 	lcd.clear()
-    		lcd.message(timeLap)
-       	if lcd.buttonPressed(lcd.DOWN):
+    	if lcd.buttonPressed(lcd.DOWN):
     		timeLap -= 1
     		lcd.clear()
-    		lcd.message(timeLap)
-       	if lcd.buttonPressed(lcd.RIGHT):
+    	if lcd.buttonPressed(lcd.RIGHT):
        		lcd.home()
     		lcd.clear()
     		lcd.message('Time\n',timeLap,' Sec.')
