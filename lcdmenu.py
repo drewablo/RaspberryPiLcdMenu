@@ -311,6 +311,8 @@ def AstroViewRADecl():
         print('in AstroViewRADecl')
         
 def MarsStats():
+    if DEBUG:
+        print('in MarsStats')
  
 def CameraDetect():
     if DEBUG:
